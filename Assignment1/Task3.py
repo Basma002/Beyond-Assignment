@@ -23,7 +23,8 @@ class Students:
 
 #Method for displaying all student IDs in the collection.
     def display_students(self):
-        return "\n".join(map(str, sorted(self.student_ids)))
+       return "\n".join([str(student_id) for student_id in sorted(self.student_ids)])
+
 
 students = Students()
 
