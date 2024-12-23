@@ -2,7 +2,7 @@ class ToDoList:
 
     def __init__(self):
         self.list = ["Read a book", "shower", "Finish the assignment"]
-        self.completed_list = set()  # Consistently named for completed tasks
+        self.completed_list = set() 
 
     # Method for adding an activity to the to-do list
     def add_activity(self, activity_name):
@@ -15,8 +15,8 @@ class ToDoList:
         else:
             raise ValueError(f"'{activity_name}' is not in the to-do list.")
 
-    # Method for marking a task as completed
-    def completed_task(self, activity_name):
+    # Method for marking an activity as completed
+    def completed_activity(self, activity_name):
         if activity_name in self.list:
             self.completed_list.add(activity_name)  # Mark as completed
         else:
@@ -25,13 +25,12 @@ class ToDoList:
     # Method for displaying all activities in the to-do list
     def display(self):
         tasks = "\n".join(self.list)
-        completed_tasks = "\n".join(self.completed_list)
-        return f"To-Do List:\n{tasks}\n\nCompleted Tasks:\n{completed_tasks}"
+        completed_activity = "\n".join(self.completed_list)
+        return f"To-Do List:\n{tasks}\n\nCompleted Tasks:\n{completed_activity}"
 
 
-# Example usage:
 myList = ToDoList()
 myList.add_activity("sleep")
 myList.remove_activity("shower")
-myList.completed_task("Finish the assignment")
+myList.completed_activity("Finish the assignment")
 print(myList.display())
