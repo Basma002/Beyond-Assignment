@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Background Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .color-changer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Change Background Color</h1>
+    <div class="color-changer">
+        <select id="colorSelect">
+            <option value="white">White</option>
+            <option value="lightblue">Light Blue</option>
+            <option value="lightgreen">Light Green</option>
+            <option value="lightcoral">Light Coral</option>
+            <option value="lightyellow">Light Yellow</option>
+        </select>
+        <button id="changeColorBtn">Change Color</button>
+    </div>
+
+    <script>
+        // Select the dropdown menu and button
+        const colorSelect = document.getElementById("colorSelect");
+        const changeColorBtn = document.getElementById("changeColorBtn");
+
+        // Add event listener to the button
+        changeColorBtn.addEventListener("click", () => {
+            // Get the selected color value
+            const selectedColor = colorSelect.value;
+
+            // Change the background color of the page
+            document.body.style.backgroundColor = selectedColor;
+        });
+    </script>
+</body>
+</html>
