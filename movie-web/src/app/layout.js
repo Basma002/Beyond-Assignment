@@ -22,10 +22,11 @@ export default function RootLayout({ children }) {
           <SearchBox />
           {children}
         </Providers>
-      </body>
-      <footer className="bg-gray-900 text-gray-400 p-4 mt-8 text-center">
+        <footer className="bg-gray-900 text-gray-400 p-4 mt-8 text-center">
   <p>© {new Date().getFullYear()} IMDb Clone. All rights reserved.</p>
 </footer>
+      </body>
+      
 
     </html>
   );
