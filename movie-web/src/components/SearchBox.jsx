@@ -8,6 +8,7 @@ export default function SearchBox() {
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Search term:', search); // Debugging the search term
     router.push(`/search/${search}`);
   };
   return (

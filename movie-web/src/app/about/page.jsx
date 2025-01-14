@@ -1,8 +1,9 @@
+
 export default function About() {
   return (
 <div className="max-w-4xl mx-auto p-4 space-y-4 ">
-<h1 className="text-amber-500 text-4xl font-bold">About</h1>
-<p className="text-gray-700 leading-relaxed dark:text-gray-300">
+<h1 className="text-amber-500 dark:text-red-600 text-4xl font-bold">About</h1>
+<p className="text-gray-700 leading-relaxed dark:text-white">
         Welcome to our movie database website! We are a team of passionate movie
         enthusiasts who have come together to create a one-stop destination for
         all your movie-related needs.
