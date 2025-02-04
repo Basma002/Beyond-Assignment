@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
+import prisma from '../../client';
 
-const prisma = new PrismaClient();
 
 export const createBookshelf = async (name: string, userId: string) => {
   return await prisma.bookShelves.create({

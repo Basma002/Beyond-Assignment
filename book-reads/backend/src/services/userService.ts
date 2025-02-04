@@ -1,6 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from '../../client';
 
-const prisma = new PrismaClient();
 
 export const getUserActivity = async (userId: string) => {
   const reviews = await prisma.review.findMany({

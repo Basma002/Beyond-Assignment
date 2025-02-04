@@ -1,6 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from '../../client';
 
-const prisma = new PrismaClient();
 
 // Add a review to a book
 export const addReview = async (bookId: string, text: string, rating: number, authorId?: string) => {

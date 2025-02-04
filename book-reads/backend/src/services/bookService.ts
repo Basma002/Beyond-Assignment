@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../client";
 import { z } from "zod";
-
-const prisma = new PrismaClient();
 
 const bookSchema = z.object({
   title: z.string().min(1, "Title is required"),
