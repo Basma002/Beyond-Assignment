@@ -7,11 +7,16 @@ jest.mock("./client", () => ({
   default: mockDeep<PrismaClient>(), 
 }));
 
-// Define prismaMock AFTER jest.mock()
 const prismaMock = prisma as unknown as DeepMockProxy<PrismaClient>;
 
-beforeEach(() => {
-  mockReset(prismaMock); 
+
+beforeEach(async () => {
+  await prisma.$connect();
+  mockReset(prismaMock);
+});
+
+afterAll(async () => {
+  await prisma.$disconnect();
 });
 
 export { prismaMock };

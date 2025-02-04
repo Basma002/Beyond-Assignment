@@ -1,18 +1,30 @@
 import request from "supertest";
-import app from "../src/app"; 
-import { prismaMock } from "../singleton"; 
+import app from "../src/app";
+import prisma from "../src/client"; 
 
 describe("Books API", () => {
-  beforeEach(() => {
-    prismaMock.book.findUnique.mockResolvedValue({
-      id: "1",
-      title: "Mock Book",
-      author: "Mock Author",
-      coverImageUrl: null,
-      categoryId: null,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+  beforeAll(async () => {
+    await prisma.$connect(); 
+  });
+
+  beforeEach(async () => {
+    await prisma.book.deleteMany(); 
+
+    await prisma.book.create({
+      data: {
+        id: "1",
+        title: "Mock Book",
+        author: "Mock Author",
+        coverImageUrl: null,
+        categoryId: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     });
+  });
+
+  afterAll(async () => {
+    await prisma.$disconnect(); 
   });
 
   it("should fetch a book by ID", async () => {
