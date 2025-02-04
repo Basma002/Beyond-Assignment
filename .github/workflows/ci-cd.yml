@@ -10,8 +10,23 @@ on:
 
 jobs:
   test:
-    name: Run Tests
+    name: Run Backend Tests
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U test_user"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -25,8 +40,16 @@ jobs:
         working-directory: book-reads/backend
         run: npm install
 
+      - name: Apply Migrations to Test Database
+        working-directory: book-reads/backend
+        env:
+          DATABASE_URL: "postgresql://test_user:${{ secrets.TEST_DB_PASSWORD }}@localhost:5432/test_db"
+        run: npx prisma migrate dev --name ci_test
+
       - name: Run Backend Tests
         working-directory: book-reads/backend
+        env:
+          DATABASE_URL: "postgresql://test_user:${{ secrets.TEST_DB_PASSWORD }}@localhost:5432/test_db"
         run: npm test
 
   build-and-push:
@@ -64,4 +87,4 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           cd book-reads/frontend
-          vercel --prod --token $VERCEL_TOKEN
+          vercel --prod --yes --token $VERCEL_TOKEN
