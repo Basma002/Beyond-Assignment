@@ -4,7 +4,7 @@ import booksRouter from "./routers/bookRouter";
 import reviewRouter from "./routers/reviewRouter";
 import userRouter from "./routers/userRouter";
 import bookShelfRoute from "./routers/bookShelfRouter";
-import cors from "cors";
+import corsConfig from "./config/corsConfig"; 
 import { errorHandler } from "./middleware/errorMiddleware";
 import categoryRouter from "./routers/categoryRouter";
 
@@ -12,14 +12,8 @@ const app: Express = express();
 
 // Middleware
 app.use(express.json());
+app.use(corsConfig);
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Allow frontend origin
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
 
 // Routes
 app.use("/auth", authRoutes);
