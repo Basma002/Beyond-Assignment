@@ -34,7 +34,7 @@
     "typescript": "^5.0.4"
   },
   "prisma": {
-    "schema": "src/prisma/schema.prisma"
+    "schema": "prisma/schema.prisma"
   },
   "scripts": {
     "build": "prisma generate && <actual-build-command>",
