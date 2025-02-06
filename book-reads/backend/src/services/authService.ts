@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import prisma from '../../client';
+import prisma from "../client";
 
 type Role = "USER" | "ADMIN";
 

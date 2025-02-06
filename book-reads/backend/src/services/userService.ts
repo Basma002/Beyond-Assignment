@@ -1,4 +1,4 @@
-import prisma from '../../client';
+import prisma from '../client';
 
 
 export const getUserActivity = async (userId: string) => {

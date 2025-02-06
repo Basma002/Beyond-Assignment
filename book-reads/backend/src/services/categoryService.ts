@@ -1,4 +1,4 @@
-import prisma from '../../client';
+import prisma from '../client';
 
 export const getAllCategoriesWithBooks = async () => {
     return await prisma.category.findMany({

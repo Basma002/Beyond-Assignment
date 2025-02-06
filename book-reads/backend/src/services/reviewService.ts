@@ -1,4 +1,4 @@
-import prisma from '../../client';
+import prisma from '../client';
 
 
 // Add a review to a book
