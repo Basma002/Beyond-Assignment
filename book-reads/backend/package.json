@@ -8,12 +8,11 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
-    "prisma": "^6.2.1",
     "tsx": "^4.19.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@prisma/client": "^6.3.0",
+    "@prisma/client": "^6.3.1",
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.17",
@@ -27,6 +26,7 @@
     "jest": "^29.7.0",
     "jest-mock-extended": "^4.0.0-beta1",
     "nodemon": "^3.1.9",
+    "prisma": "^6.3.1",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
@@ -41,7 +41,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
     "test": "dotenv -e .env.test -- jest -i",
-    "sync-test":"dotenv -e .env.test -- npx prisma db push",
-    "postinstall": "prisma generate"
+    "sync-test": "dotenv -e .env.test -- npx prisma db push",
+    "postinstall": "prisma generate",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma"
   }
 }

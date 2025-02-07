@@ -10,7 +10,7 @@
       "rootDir": "src",  // Ensure TypeScript compiles from src/
       "types": ["jest"]
     },
-    "include": ["src/**/*.ts", "src/types/**/*.d.ts", "src/client.ts", "client.js"], // Include express.d.ts
+    "include": ["src/**/*.ts", "src/config/**/*.ts", "src/types/**/*.d.ts", "src/client.ts", "client.js"], // Include express.d.ts
     "exclude": ["node_modules","./dist", "__tests__","jest.config.js"]
   }
   

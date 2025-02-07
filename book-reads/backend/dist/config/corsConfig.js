@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const corsOptions = {
-    origin: "http://localhost:3000", // Allow frontend origin
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 };
