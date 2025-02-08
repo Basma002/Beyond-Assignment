@@ -14,8 +14,8 @@ const errorMiddleware_1 = require("./middleware/errorMiddleware");
 const categoryRouter_1 = __importDefault(require("./routers/categoryRouter"));
 const app = (0, express_1.default)();
 // Middleware
-app.use(express_1.default.json());
-app.use(corsConfig_1.default);
+app.use(corsConfig_1.default); // CORS should be the first middleware
+app.use(express_1.default.json()); // JSON Parser
 // Routes
 app.use("/auth", authRouter_1.default);
 app.use("/books", bookRouter_1.default);
@@ -24,6 +24,7 @@ app.use("/bookshelves", bookShelfRouter_1.default);
 app.use("/users", userRouter_1.default);
 app.use("/uploads", express_1.default.static("uploads"));
 app.use("/categories", categoryRouter_1.default);
+// Error Handling Middleware
 app.use(errorMiddleware_1.errorHandler);
 // Default route
 app.get("/", (req, res) => {

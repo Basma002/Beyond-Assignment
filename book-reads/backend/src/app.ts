@@ -11,8 +11,8 @@ import categoryRouter from "./routers/categoryRouter";
 const app: Express = express();
 
 // Middleware
-app.use(express.json());
-app.use(corsConfig);
+app.use(corsConfig); // CORS should be the first middleware
+app.use(express.json()); // JSON Parser
 
 // Routes
 app.use("/auth", authRoutes);
@@ -21,7 +21,10 @@ app.use("/reviews", reviewRouter);
 app.use("/bookshelves", bookShelfRoute);
 app.use("/users", userRouter);
 app.use("/uploads", express.static("uploads"));
-app.use("/categories", categoryRouter);app.use(errorHandler);
+app.use("/categories", categoryRouter);
+
+// Error Handling Middleware
+app.use(errorHandler);
 
 // Default route
 app.get("/", (req: Request, res: Response) => {
@@ -29,4 +32,3 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 export default app;
-
