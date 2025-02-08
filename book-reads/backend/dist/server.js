@@ -6,7 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const app_1 = __importDefault(require("./app"));
 dotenv_1.default.config();
-const PORT = process.env.port || 8000;
-app_1.default.listen(PORT, () => {
-    console.log(`[server]: Server is running at http://localhost:${PORT}`);
-});
+// Vercel expects an exported default function
+exports.default = app_1.default;

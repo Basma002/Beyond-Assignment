@@ -1,7 +1,8 @@
-import dotenv from "dotenv";
-import app from "./app";
+import express from "express";
+import cors from "cors";
+import corsConfig from "./config/corsConfig";
 
-dotenv.config();
+const app = express();
 
-// Vercel expects an exported default function
-export default app;
+app.use(corsConfig);  // Apply CORS
+app.use(express.json());

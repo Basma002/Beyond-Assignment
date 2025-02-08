@@ -1,12 +1,10 @@
 import cors from "cors";
 
-const corsConfig = cors({
-  origin: [
-    "https://frontend-bu9mn4qgc-basmas-projects-c8197bc0.vercel.app", 
-  ],
-  credentials: true, 
-  methods: "GET,POST,PUT,DELETE", 
-  allowedHeaders: "Content-Type,Authorization", // ✅ Allow necessary headers
-});
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || "*", // Use environment variable
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
 
-export default corsConfig;
+export default cors(corsOptions);
+
