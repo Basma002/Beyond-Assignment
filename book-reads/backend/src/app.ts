@@ -13,6 +13,18 @@ const app: Express = express();
 // Middleware
 app.use(corsConfig); // CORS should be the first middleware
 app.use(express.json()); // JSON Parser
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://frontend-rb1hv8k8x-basmas-projects-c8197bc0.vercel.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end(); // Handle preflight requests
+  }
+
+  next();
+});
 
 // Routes
 app.use("/auth", authRoutes);
