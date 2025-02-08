@@ -36,16 +36,15 @@
   "prisma": {
     "schema": "prisma/schema.prisma"
   },
-  "scripts": {
-    "build": "prisma generate && tsc",
-    "start": "node dist/server.js",
-    "dev": "nodemon src/server.ts",
-    "test": "dotenv -e .env.test -- jest -i",
-    "sync-test": "dotenv -e .env.test -- npx prisma db push",
-    "postinstall": "prisma generate",
-    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
-    "vercel-start": "node dist/server.js"
-  }
+"scripts": {
+  "build": "prisma generate && tsc",
+  "start": "node dist/server.js",
+  "dev": "nodemon src/server.ts",
+  "test": "dotenv -e .env.test -- jest -i",
+  "sync-test": "dotenv -e .env.test -- npx prisma db push",
+  "postinstall": "prisma generate",
+  "prisma:generate": "prisma generate --schema=./prisma/schema.prisma"
+}
 }
 
 
