@@ -88,3 +88,23 @@ jobs:
         run: |
           cd book-reads/frontend
           vercel --prod --yes --token $VERCEL_TOKEN
+
+  deploy-backend:
+    name: Deploy Backend to Vercel
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy Backend to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          cd book-reads/backend
+          vercel --prod --yes --token $VERCEL_TOKEN
+
+ 

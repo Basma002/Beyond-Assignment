@@ -41,10 +41,10 @@
   "start": "node dist/server.js",
   "dev": "nodemon src/server.ts",
   "test": "dotenv -e .env.test -- jest -i",
-  "sync-test": "dotenv -e .env.test -- npx prisma db push",
   "postinstall": "prisma generate",
   "prisma:generate": "prisma generate --schema=./prisma/schema.prisma"
 }
+
 }
 
 
