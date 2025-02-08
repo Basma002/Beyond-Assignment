@@ -14,7 +14,6 @@ const app: Express = express();
 app.use(express.json());
 app.use(corsConfig);
 
-
 // Routes
 app.use("/auth", authRoutes);
 app.use("/books", booksRouter);
