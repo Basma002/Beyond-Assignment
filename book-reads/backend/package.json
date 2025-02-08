@@ -37,7 +37,7 @@
     "schema": "prisma/schema.prisma"
   },
   "scripts": {
-    "build": "prisma generate && <actual-build-command>",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
     "test": "dotenv -e .env.test -- jest -i",
