@@ -11,10 +11,10 @@ import categoryRouter from "./routers/categoryRouter";
 const app: Express = express();
 
 // Middleware
-app.use(corsConfig); // CORS should be the first middleware
-app.use(express.json()); // JSON Parser
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://frontend-rb1hv8k8x-basmas-projects-c8197bc0.vercel.app");
+app.use(corsConfig); 
+app.use(express.json()); 
+app.use((req, res, next) => {   
+  res.setHeader("Access-Control-Allow-Origin", "frontend-five-omega-89.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
