@@ -11,7 +11,7 @@
       "src": "/(.*)",
       "dest": "src/server.ts",
       "headers": {
-        "Access-Control-Allow-Origin": "https://frontend-five-omega-89.vercel.app",
+        "Access-Control-Allow-Origin": "frontend-pgzwa83cj-basmas-projects-c8197bc0.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
         "Access-Control-Allow-Credentials": "true"
