@@ -2,20 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.ts",
+      "src": "src/server.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/server.ts",
-      "headers": {                      
-        "Access-Control-Allow-Origin": " https://frontend-6p18awg79-basmas-projects-c8197bc0.vercel.app, https://frontend-five-omega-89.vercel.app",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Access-Control-Allow-Credentials": "true"
-      }
+      "dest": "src/server.ts"
     }
   ]
 }
