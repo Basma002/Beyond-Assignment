@@ -13,6 +13,7 @@ const app: Express = express();
 // Middleware
 app.use(corsConfig); 
 app.use(express.json()); 
+
 app.use((req, res, next) => {   
   res.setHeader("Access-Control-Allow-Origin", "frontend-five-omega-89.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
@@ -37,6 +38,7 @@ app.use("/categories", categoryRouter);
 
 // Error Handling Middleware
 app.use(errorHandler);
+app.options("*", corsConfig);
 
 // Default route
 app.get("/", (req: Request, res: Response) => {

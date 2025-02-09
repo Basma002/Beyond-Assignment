@@ -1,7 +1,7 @@
 import cors from "cors";
 
 const corsOptions = {
-  origin: "*", // Allow all origins (not recommended for production)
+  origin: "*", 
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   credentials: true, 
 };
